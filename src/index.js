@@ -67,6 +67,7 @@ class App extends Component {
               />
           )}
         </FlexAppContainer>
+        <div class="status">This will show total status</div>
       </RootContainer>
     );
   }

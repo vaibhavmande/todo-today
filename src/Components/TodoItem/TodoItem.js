@@ -28,7 +28,7 @@ function TodoItem({itemText, index, isComplete, toggleItemStatus}) {
     display: flex;
     align-items: center;
     height: 100%;
-    background: #ff7373;
+    background: ${props => props.isComplete ? 'green' : '#ff7373'};
     padding-left: 15px;
     border-radius: 0 4px 4px 0;
   `
@@ -43,7 +43,7 @@ function TodoItem({itemText, index, isComplete, toggleItemStatus}) {
           onClick={toggleItemStatus.bind(this, index)}
         />
       </CheckboxLeftContainer>
-      <CheckboxRightContainer>
+      <CheckboxRightContainer isComplete={isComplete}>
         <label htmlFor={index}>{itemText}</label>
       </CheckboxRightContainer>
     </StyledItem>
