@@ -1,33 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from '@emotion/styled'
 
-export default class MasterInput extends Component {
-  constructor() {
-    super();
-    this.state = {
-      item: ""
-    };
-  }
+function TodoItem({itemText, id}) {
 
-  onKeyDownHandler = event => {
-    this.setState({
-      item: event.target.value
-    });
-  };
-
-  render = props => {
-    
-    const StyledInput = styled.input`
-      width: 50%;
-      height: 35px;
-      border: none;
-      background: grey;
-      border-radius: 4px;
-      font-size: 1.2em;
-      padding: 2px 12px;
-    `
-    return (
-      <StyledInput placeholder="Enter task here"/>
-    );
-  };
+  const StyledItem = styled.div`
+    border: 2px solid grey;
+    padding: 6px;
+    margin: 2px;
+  `
+  const CheckItem = styled.input`
+    margin: 8px;
+  `
+  return (
+    <StyledItem>
+      <CheckItem type="checkbox" id={id}/>
+      <label for={id}>{itemText}</label>
+    </StyledItem>
+  )
 }
+
+export default TodoItem

@@ -1,36 +1,45 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import styled from '@emotion/styled'
-import {css} from '@emotion/core'
 import MasterInput from "./Components/MasterInput/MasterInput";
+import TodoItem from "./Components/TodoItem/TodoItem"
 
-const stretchedContainer = css`
+import './index.css'
+
+const RootContainer = styled.div`
   height: 100vh;
-  width: 100vw;
 `
 
-const FlexContainer = styled.div`
+const FlexAppContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  ${stretchedContainer}
+  border: 1px solid red;
+  padding: 15px;
 `
-
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      items: []
+      items: [
+        'Roti',
+        'Kapda',
+        'Makan'
+      ]
     }
   }
 
   render() {
     return (
-      <div className="App">
-        <FlexContainer>
+      <RootContainer>
+        <FlexAppContainer>
           <MasterInput />
-        </FlexContainer>
-      </div>
+          {this.state.items.map(item => 
+            <TodoItem itemText={item} id={item} key={item.toString()}/>
+          )}
+        </FlexAppContainer>
+      </RootContainer>
     );
   }
 }

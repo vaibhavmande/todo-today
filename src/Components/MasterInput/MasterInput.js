@@ -18,7 +18,7 @@ export default class MasterInput extends Component {
   render = props => {
     
     const StyledInput = styled.input`
-      width: 50%;
+      width: 100%;
       height: 35px;
       border: none;
       background: grey;
