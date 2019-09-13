@@ -1,33 +1,51 @@
 import React, { Component } from "react";
 import styled from '@emotion/styled'
 
+const StyledInput = styled.input`
+  width: 100%;
+  height: 45px;
+  border: none;
+  background: #efe382;
+  border-radius: 4px;
+  font-size: 1.2em;
+  padding: 2px 12px;
+  margin-bottom: 5px;
+`
+
 export default class MasterInput extends Component {
   constructor() {
     super();
     this.state = {
-      item: ""
+      value: ""
     };
   }
 
   onKeyDownHandler = event => {
-    this.setState({
-      item: event.target.value
-    });
+    
+    const {value} = event.target
+
+    if(event.keyCode === 13 && event.shiftKey === false && value !== "") {
+      this.props.setItems(value)
+      event.preventDefault();
+      this.setState({value: ""})
+    }
   };
 
-  render = props => {
-    
-    const StyledInput = styled.input`
-      width: 100%;
-      height: 35px;
-      border: none;
-      background: grey;
-      border-radius: 4px;
-      font-size: 1.2em;
-      padding: 2px 12px;
-    `
+  onChangeHandler = event => {
+    event.preventDefault()
+    const {value} = event.target
+    this.setState({value})
+  }
+
+  render = () => {
+   
     return (
-      <StyledInput placeholder="Enter task here"/>
+      <StyledInput 
+        placeholder="Enter task here" 
+        onKeyDown={this.onKeyDownHandler}
+        onChange={this.onChangeHandler}
+        value={this.state.value}
+      />
     );
   };
 }

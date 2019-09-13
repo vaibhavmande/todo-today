@@ -23,10 +23,32 @@ class App extends Component {
     super()
     this.state = {
       items: [
-        'Roti',
-        'Kapda',
-        'Makan'
+        {
+          name: 'Roti',
+          isComplete: false
+        },
+        {
+          name: 'Kapda',
+          isComplete: true
+        }
       ]
+    }
+  }
+
+  setItems = (item) => {
+    this.setState({
+      items:[...this.state.items, {
+        name: item,
+        isComplete: false
+      }]
+    })
+  }
+
+  toggleItemStatus = (index) => {
+    if( typeof this.state.items[index] !== "undefined" ) {
+      const items = [...this.state.items];
+      items[index].isComplete = !items[index].isComplete;
+      this.setState({ items });
     }
   }
 
@@ -34,9 +56,15 @@ class App extends Component {
     return (
       <RootContainer>
         <FlexAppContainer>
-          <MasterInput />
-          {this.state.items.map(item => 
-            <TodoItem itemText={item} id={item} key={item.toString()}/>
+          <MasterInput setItems={this.setItems}/>
+          {this.state.items.map((item, index) => 
+            ( index < 5 ) && <TodoItem 
+                itemText={item.name} 
+                index={index} 
+                key={item.name.toLowerCase()}
+                isComplete={item.isComplete}
+                toggleItemStatus={this.toggleItemStatus}
+              />
           )}
         </FlexAppContainer>
       </RootContainer>
