@@ -1,12 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, {Component} from "react";
+import ReactDOM from "react-dom";
+import styled from '@emotion/styled'
+import {css} from '@emotion/core'
+import MasterInput from "./Components/MasterInput/MasterInput";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const stretchedContainer = css`
+  height: 100vh;
+  width: 100vw;
+`
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${stretchedContainer}
+`
+
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      items: []
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <FlexContainer>
+          <MasterInput />
+        </FlexContainer>
+      </div>
+    );
+  }
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App/>, rootElement);
