@@ -25,11 +25,15 @@ export default class MasterInput extends Component {
 
   onKeyDownHandler = event => {
     const {value} = event.target
+    const {totalItems} = this.props
 
-    if(event.keyCode === 13 && event.shiftKey === false && value !== "") {
-      this.props.setItems(value)
-      event.preventDefault();
-      this.setState({value: ""})
+    if(event.keyCode === 13 
+      && event.shiftKey === false 
+      && value !== ""
+      && totalItems < 5) {
+        this.props.setItems(value)
+        event.preventDefault();
+        this.setState({value: ""})
     }
   };
 

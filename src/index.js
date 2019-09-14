@@ -137,10 +137,13 @@ class App extends Component {
         </Header>
         <CenteredAppContainer>
           <FlexAppContainer>
-            <MasterInput setItems={this.setItems}/>
+            <MasterInput 
+              setItems={this.setItems} 
+              totalItems={this.state.items.length}
+            />
             {this.state.items.map((item, index) => {
               item.isComplete && progress++
-              return ( index < 5 ) && <TodoItem 
+              return <TodoItem 
                   itemText={item.name} 
                   index={index} 
                   key={item.name.toLowerCase()}
