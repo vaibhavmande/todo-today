@@ -29,13 +29,42 @@ const FlexAppContainer = styled.div`
 const CenteredAppContainer = styled.div`
   display: flex;
   justify-content: center;
-  height: 98%;
+  height: 88%;
 `
 
 const StatusBar = styled.div`
   height: 2%;
   width: ${props => props.progress}%;
   background-color: ${props => props.progress < 100 ? colors.app.statusbar : colors.tasks.done};
+`
+
+const Header = styled.header`
+  font-family: "Arial", Helvetica, sans-serif;
+  color: honeydew;
+  padding: 10px;
+  text-align: center;
+  background: ${colors.app.header};
+  display: flex;
+`
+const HeaderText = styled.h2`
+  margin: 0;
+`
+
+const ThirdDiv = styled.div`
+  width: calc(100%/3);
+  padding: 0;
+  margin: 0;
+`
+
+const RightAlignedThirdDiv = styled(ThirdDiv)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 12px;
+`
+
+const ProfileHyperLink = styled.a`
+  width: 5%;
 `
 
 class App extends Component {
@@ -90,6 +119,22 @@ class App extends Component {
 
     return (
       <RootContainer>
+        <Header>
+          <ThirdDiv/>
+          <ThirdDiv>
+            <HeaderText>
+              Tasks for the day
+            </HeaderText>
+          </ThirdDiv>
+          <RightAlignedThirdDiv>
+            <ProfileHyperLink 
+              href="https://github.com/vaibhavmande"
+              target="_blank"
+            >
+              <img src={require("./github.svg")} alt="GitHub"/>
+            </ProfileHyperLink>
+          </RightAlignedThirdDiv>
+        </Header>
         <CenteredAppContainer>
           <FlexAppContainer>
             <MasterInput setItems={this.setItems}/>

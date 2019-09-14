@@ -5,8 +5,9 @@ const Theme = {
       done: '#a4d1c8'
     },
     app: {
-      statusbar: '#f2a6a6',
-      background: '#584b42'
+      statusbar: '#6b778d',
+      background: '#584b42',
+      header: '#6b778d'
     },
     elements: {
       masterInput: '#fff',
