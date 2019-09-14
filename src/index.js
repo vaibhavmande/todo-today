@@ -71,16 +71,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      items: [
-        {
-          name: 'Roti',
-          isComplete: false
-        },
-        {
-          name: 'Kapda',
-          isComplete: true
-        }
-      ]
+      items: []
     }
   }
 

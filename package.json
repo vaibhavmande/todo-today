@@ -2,6 +2,7 @@
   "name": "todo-today",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://vaibhavmande.github.io/todo-today",
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
