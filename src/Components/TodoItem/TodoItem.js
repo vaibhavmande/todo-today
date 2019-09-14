@@ -1,5 +1,8 @@
 import React from "react";
 import styled from '@emotion/styled'
+import Theme from '../../theme'
+
+const { colors } = Theme
 
 function TodoItem({itemText, index, isComplete, toggleItemStatus}) {
 
@@ -20,7 +23,7 @@ function TodoItem({itemText, index, isComplete, toggleItemStatus}) {
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: #efe382;
+    background: ${colors.elements.checkbox};
     border-radius: 4px 0 0 4px;
   `
   const CheckboxRightContainer = styled.span`
@@ -28,7 +31,7 @@ function TodoItem({itemText, index, isComplete, toggleItemStatus}) {
     display: flex;
     align-items: center;
     height: 100%;
-    background: ${props => props.isComplete ? 'green' : '#ff7373'};
+    background: ${props => props.isComplete ? colors.tasks.done : colors.tasks.incomplete};
     padding-left: 15px;
     border-radius: 0 4px 4px 0;
   `

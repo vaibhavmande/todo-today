@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import styled from '@emotion/styled'
+import Theme from '../../theme'
+
+const { colors } = Theme
 
 const StyledInput = styled.input`
   width: 100%;
   height: 45px;
   border: none;
-  background: #efe382;
+  background: ${colors.elements.masterInput};
   border-radius: 4px;
   font-size: 1.2em;
   padding: 2px 12px;

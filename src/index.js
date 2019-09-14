@@ -3,8 +3,10 @@ import ReactDOM from "react-dom";
 import styled from '@emotion/styled'
 import MasterInput from "./Components/MasterInput/MasterInput";
 import TodoItem from "./Components/TodoItem/TodoItem"
-
 import './index.css'
+import Theme from './theme'
+
+const { colors } = Theme
 
 const RootContainer = styled.div`
   height: 100vh;
@@ -24,7 +26,7 @@ const FlexAppContainer = styled.div`
 const StatusBar = styled.div`
   height: 2%;
   width: ${props => props.progress}%;
-  background-color: green;
+  background-color: ${colors.app.statusbar};
 `
 
 class App extends Component {
