@@ -15,7 +15,15 @@ function TodoItem({itemText, index, isComplete, toggleItemStatus}) {
     height: 50px;
   `
   const CheckItem = styled.input`
-    margin: 8px;
+    margin: 0;
+    -webkit-appearance:none;
+    width:100%;
+    height:100%;
+    border-radius:4px 0 0 4px;
+    cursor: pointer;
+    &:checked {
+      background: ${colors.elements.checked};
+    }
   `
   const CheckboxLeftContainer = styled.span`
     flex-basis: 10%;

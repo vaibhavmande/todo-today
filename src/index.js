@@ -13,6 +13,7 @@ const RootContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: ${colors.app.background};
 `
 
 const FlexAppContainer = styled.div`
@@ -20,13 +21,21 @@ const FlexAppContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
   padding: 15px;
+  height: 100%;
+  width: 50%;
 `
+
+const CenteredAppContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 98%;
+`
+
 const StatusBar = styled.div`
   height: 2%;
   width: ${props => props.progress}%;
-  background-color: ${colors.app.statusbar};
+  background-color: ${props => props.progress < 100 ? colors.app.statusbar : colors.tasks.done};
 `
 
 class App extends Component {
@@ -68,7 +77,6 @@ class App extends Component {
    * argument to the method
    */
   computeProgress = progress => {
-    
     let progressPercent = 0
     let totalItems = this.state.items.length
     
@@ -82,20 +90,22 @@ class App extends Component {
 
     return (
       <RootContainer>
-        <FlexAppContainer>
-          <MasterInput setItems={this.setItems}/>
-          {this.state.items.map((item, index) => {
-            item.isComplete && progress++
-            return ( index < 5 ) && <TodoItem 
-                itemText={item.name} 
-                index={index} 
-                key={item.name.toLowerCase()}
-                isComplete={item.isComplete}
-                toggleItemStatus={this.toggleItemStatus}
-              />
-          })
-        }
-        </FlexAppContainer>
+        <CenteredAppContainer>
+          <FlexAppContainer>
+            <MasterInput setItems={this.setItems}/>
+            {this.state.items.map((item, index) => {
+              item.isComplete && progress++
+              return ( index < 5 ) && <TodoItem 
+                  itemText={item.name} 
+                  index={index} 
+                  key={item.name.toLowerCase()}
+                  isComplete={item.isComplete}
+                  toggleItemStatus={this.toggleItemStatus}
+                />
+            })
+          }
+          </FlexAppContainer>
+        </CenteredAppContainer>  
         <StatusBar 
           progress={progress = this.computeProgress(progress)} 
           title={progress}>

@@ -1,16 +1,17 @@
 const Theme = {
   colors: {
     tasks: {
-      done: '#6faf6f',
-      incomplete: '#ff7373'
+      incomplete: '#f2a6a6',
+      done: '#a4d1c8'
     },
     app: {
-      statusbar: '#00c2ff',
-      background: ''
+      statusbar: '#f2a6a6',
+      background: '#584b42'
     },
     elements: {
-      masterInput: '#efe382',
-      checkbox: '#efe382'
+      masterInput: '#fff',
+      checkbox: '#fff',
+      checked: '#fff'
     }
   }
 }

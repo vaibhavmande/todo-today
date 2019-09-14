@@ -24,7 +24,6 @@ export default class MasterInput extends Component {
   }
 
   onKeyDownHandler = event => {
-    
     const {value} = event.target
 
     if(event.keyCode === 13 && event.shiftKey === false && value !== "") {
