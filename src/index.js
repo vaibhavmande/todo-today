@@ -8,6 +8,9 @@ import './index.css'
 
 const RootContainer = styled.div`
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 const FlexAppContainer = styled.div`
@@ -18,6 +21,12 @@ const FlexAppContainer = styled.div`
   border: 1px solid red;
   padding: 15px;
 `
+const StatusBar = styled.div`
+  height: 2%;
+  width: ${props => props.progress}%;
+  background-color: green;
+`
+
 class App extends Component {
   constructor() {
     super()
@@ -44,7 +53,7 @@ class App extends Component {
     })
   }
 
-  toggleItemStatus = (index) => {
+  toggleItemStatus = index => {
     if( typeof this.state.items[index] !== "undefined" ) {
       const items = [...this.state.items];
       items[index].isComplete = !items[index].isComplete;
@@ -52,22 +61,43 @@ class App extends Component {
     }
   }
 
+  /**
+   * @todo compute checkedItem in the param, no need to get a an
+   * argument to the method
+   */
+  computeProgress = progress => {
+    
+    let progressPercent = 0
+    let totalItems = this.state.items.length
+    
+    totalItems && ( progressPercent = Math.round((progress / totalItems)*100) )
+    
+    return progressPercent
+  }
+
   render() {
+    let progress = 0
+
     return (
       <RootContainer>
         <FlexAppContainer>
           <MasterInput setItems={this.setItems}/>
-          {this.state.items.map((item, index) => 
-            ( index < 5 ) && <TodoItem 
+          {this.state.items.map((item, index) => {
+            item.isComplete && progress++
+            return ( index < 5 ) && <TodoItem 
                 itemText={item.name} 
                 index={index} 
                 key={item.name.toLowerCase()}
                 isComplete={item.isComplete}
                 toggleItemStatus={this.toggleItemStatus}
               />
-          )}
+          })
+        }
         </FlexAppContainer>
-        <div class="status">This will show total status</div>
+        <StatusBar 
+          progress={progress = this.computeProgress(progress)} 
+          title={progress}>
+        </StatusBar>
       </RootContainer>
     );
   }
