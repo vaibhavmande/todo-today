@@ -7,7 +7,7 @@ const Container = styled.main`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(to right top, #d3cce3, #e9e4f0);
+  background: linear-gradient(to right top, #ff9a9e, #fad0c4);
 `
 
 export const App = () => (
