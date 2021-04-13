@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Centered } from './containers/Centered'
+import { TaskInput } from './TaskInput'
+import { Tasks } from './Tasks'
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   justify-content: center;
   height: 80vh;
@@ -28,8 +33,17 @@ const QuoteFooter = styled.div`
 `
 
 const TasksContainer = () => {
+  const [tasks, setTasks] = useState([
+    { name: 'Task 1 this is task 1' },
+    { name: 'Task 2 task 2' },
+  ])
+
   return (
     <Container>
+      <Centered>
+        <TaskInput tasks={tasks} addTask={setTasks} />
+        <Tasks tasks={tasks} />
+      </Centered>
       <QuoteFooter>0 / 5</QuoteFooter>
     </Container>
   )
