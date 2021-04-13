@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Title } from './elements/Title'
 import { Centered } from './containers/Centered'
 import { TaskInput } from './TaskInput'
 import { Tasks } from './Tasks'
+import image from '../../public/images/done.svg'
 
 const Container = styled.div`
   display: flex;
@@ -10,7 +12,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 60%;
   width: 60%;
   border-radius: 1.5rem;
   background: linear-gradient(
@@ -32,19 +34,37 @@ const QuoteFooter = styled.div`
   );
 `
 
+const ImageContainer = styled.div`
+  background: url(${image});
+  background-size: 250px auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  justify-content: center;
+  background-position-y: 10px;
+`
+
 const TasksContainer = () => {
-  const [tasks, setTasks] = useState([
-    { name: 'Task 1 this is task 1' },
-    { name: 'Task 2 task 2' },
-  ])
+  const [tasks, setTasks] = useState([])
 
   return (
     <Container>
+      <Title>Tasks for the day</Title>
       <Centered>
         <TaskInput tasks={tasks} addTask={setTasks} />
         <Tasks tasks={tasks} />
+        {!tasks.length ? (
+          <ImageContainer>
+            <span style={{ 'padding-top': '275px' }}>
+              You are all done here
+            </span>
+          </ImageContainer>
+        ) : (
+          <></>
+        )}
       </Centered>
-      <QuoteFooter>0 / 5</QuoteFooter>
     </Container>
   )
 }

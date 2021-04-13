@@ -17,5 +17,5 @@ export const TaskInput = ({ tasks, addTask }) => {
     event?.key == 'Enter' && inputValue && insertIntoState(inputValue)
   }
 
-  return <Input onKeyPress={onKeyPress} />
+  return <Input onKeyPress={onKeyPress} placeholder="Add task, e.g. Get Milk" />
 }

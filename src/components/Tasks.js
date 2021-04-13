@@ -10,6 +10,7 @@ const ListContainer = styled.div`
 
 const PaddedText = styled(FlexContainer)`
   padding-left: 10px;
+  width: 96%;
 `
 
 const PaddedListContainer = styled(FlexContainer)`
