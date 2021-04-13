@@ -44,7 +44,7 @@ const ImageContainer = styled.div`
   flex: 1;
   align-items: flex-start;
   justify-content: center;
-  background-position-y: 20px;
+  /* background-position-y: 20px; */
 `
 
 const TasksContainer = () => {
@@ -57,7 +57,7 @@ const TasksContainer = () => {
         <TaskInput tasks={tasks} addTask={setTasks} />
         {!tasks.length ? (
           <ImageContainer>
-            <span style={{ paddingTop: '275px' }}>
+            <span style={{ paddingTop: '50px' }}>
               Add a task to get started
             </span>
           </ImageContainer>
