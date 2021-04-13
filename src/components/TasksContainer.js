@@ -15,6 +15,7 @@ const Container = styled.div`
   height: 60%;
   width: 60%;
   border-radius: 1.5rem;
+  overflow: hidden;
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.7),
@@ -43,7 +44,7 @@ const ImageContainer = styled.div`
   flex: 1;
   align-items: flex-start;
   justify-content: center;
-  background-position-y: 10px;
+  background-position-y: 20px;
 `
 
 const TasksContainer = () => {
@@ -54,15 +55,14 @@ const TasksContainer = () => {
       <Title>Tasks for the day</Title>
       <Centered>
         <TaskInput tasks={tasks} addTask={setTasks} />
-        <Tasks tasks={tasks} />
         {!tasks.length ? (
           <ImageContainer>
-            <span style={{ 'padding-top': '275px' }}>
-              You are all done here
+            <span style={{ paddingTop: '275px' }}>
+              Add a task to get started
             </span>
           </ImageContainer>
         ) : (
-          <></>
+          <Tasks tasks={tasks} setTasks={setTasks} />
         )}
       </Centered>
     </Container>

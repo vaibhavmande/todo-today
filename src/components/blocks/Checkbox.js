@@ -49,11 +49,11 @@ const Label = styled.label`
 `
 
 const Container = styled.div``
-export const Checkbox = ({ checked, id }) => {
+export const Checkbox = ({ onChange, id }) => {
   return (
     <Round>
-      <input type="checkbox" id={id} />
-      <Label for={id}></Label>
+      <input type="checkbox" id={id} onChange={onChange} />
+      <Label htmlFor={id}></Label>
     </Round>
   )
 }

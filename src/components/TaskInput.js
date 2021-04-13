@@ -7,14 +7,18 @@ export const TaskInput = ({ tasks, addTask }) => {
     addTask([
       ...tasks,
       {
-        id: '',
         name: inputValue.trim(),
+        checked: false,
       },
     ])
   }
   const onKeyPress = (event) => {
     const inputValue = event.target.value
-    event?.key == 'Enter' && inputValue && insertIntoState(inputValue)
+    if (event?.key == 'Enter' && inputValue) {
+      insertIntoState(inputValue)
+      event.target.value = ''
+      event.target.focus()
+    }
   }
 
   return <Input onKeyPress={onKeyPress} placeholder="Add task, e.g. Get Milk" />
