@@ -48,7 +48,6 @@ const Label = styled.label`
   }
 `
 
-const Container = styled.div``
 export const Checkbox = ({ onChange, id }) => {
   return (
     <Round>

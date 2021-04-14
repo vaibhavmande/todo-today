@@ -8,7 +8,7 @@ const ListContainer = styled.div`
   margin-top: 10px;
   overflow: auto;
   flex: 1;
-  max-height: 415px;
+  max-height: 312px;
 `
 
 const PaddedText = styled(FlexContainer)`
@@ -38,7 +38,12 @@ export const Tasks = ({ tasks, setTasks }) => {
             id={key}
             onChange={(event) => handleCheck(event, key, setTasks)}
           />
-          <PaddedText at="center" key={key} crossed={task.checked}>
+          <PaddedText
+            at="center"
+            jc="flex-start"
+            key={key}
+            crossed={task.checked}
+          >
             {task.name}
           </PaddedText>
         </PaddedListContainer>

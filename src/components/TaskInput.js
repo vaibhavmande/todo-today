@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Input } from './elements/Input'
 
 export const TaskInput = ({ tasks, addTask }) => {

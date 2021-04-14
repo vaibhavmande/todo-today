@@ -10,6 +10,6 @@ export const Input = styled.input`
   width: 100%;
   font-size: 16px;
   &:focus {
-    outline-width: 0;
+    outline: none;
   }
 `
