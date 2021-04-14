@@ -11,6 +11,7 @@ import { breakpoints } from '../breakpoints'
 const Container = styled(FlexContainer)`
   height: 60%;
   width: 60%;
+  max-height: 60%;
   border-radius: 1.5rem;
   overflow: hidden;
   background: linear-gradient(
@@ -21,6 +22,7 @@ const Container = styled(FlexContainer)`
   @media ${breakpoints.tillTablet} {
     width: 80%;
     height: 80%;
+    max-height: 80%;
   }
 `
 

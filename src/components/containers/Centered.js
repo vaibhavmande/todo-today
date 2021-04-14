@@ -7,4 +7,5 @@ export const Centered = styled.div`
   width: 100%;
   padding: 15px 25px;
   margin-top: 10px;
+  height: inherit;
 `

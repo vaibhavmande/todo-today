@@ -7,8 +7,8 @@ const ListContainer = styled.div`
   padding: 2px;
   margin-top: 10px;
   overflow: auto;
-  flex: 1;
-  max-height: 312px;
+  /* flex: 1; */
+  /* max-height: 312px; */
 `
 
 const PaddedText = styled(FlexContainer)`
