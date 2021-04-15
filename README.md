@@ -1,7 +1,6 @@
 <h1 align="center">Simple Todo App with React + Parcel</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/made%20by-vaibhavmande-red"/>
   <img src="https://badges.aleen42.com/src/react.svg"/>
   <img src="https://img.shields.io/github/languages/top/vaibhavmande/todo-today"/>
   <img src="https://img.shields.io/badge/styled--components-5.2.3-orange"/>
@@ -24,11 +23,11 @@ yarn build
 
 This will build files into dist/ folder which can be deployed.
 
-## Technologies Used
+## Built Using
 
-- **React**
-- **Parcel**
-- **styled-components**
+- **[React](https://reactjs.org/ 'React')**
+- **[Parcel](https://parceljs.org/ 'Parcel')**
+- **[styled-components](https://styled-components.com/ 'styled-components')**
 
 ## Screenshot of the website
 
