@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { FlexContainer } from './FlexContainer'
-import image from '../../../public/images/done.svg'
+import image from 'url:../../../public/images/done.svg'
 
 export const ImageContainer = styled(FlexContainer)`
   background: url(${image});
